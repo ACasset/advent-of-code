@@ -1,4 +1,68 @@
 function execute( input ) {
+    class BingoGrid {
+        constructor( grid ) {
+            this.grid = grid;
+            
+            for (var i = 0; i < this.grid.length; i++) {
+                for (var j = 0; j < this.grid[i].length; j++) {
+                    this.grid[i][j] = new BingoNumber( this.grid[i][j] );
+                }
+            }
+        }
+        
+        draw( number ) {
+            for (var i = 0; i < this.grid.length; i++) {
+                for (var j = 0; j < this.grid[i].length; j++) {
+                    if (this.grid[i][j].number === number) {
+                        this.grid[i][j].drawn = true;
+                        return;
+                    }
+                }
+            }
+        }
+        
+        isComplete() {
+            // Test des combinaisons horizontales
+            for (var i = 0; i < this.grid.length; i++) {
+                let isComplete = true;
+                
+                for (var j = 0; j < this.grid[i].length; j++) {
+                    if ( this.grid[i][j].drawn === false ) {
+                        isComplete = false;
+                    }
+                }
+                
+                if ( isComplete ) 
+                    return isComplete;
+            }
+            
+            // Test des combinaisons verticales
+            for (var i = 0; i < this.grid.length; i++) {
+                let isComplete = true;
+                
+                for (var j = 0; j < this.grid[i].length; j++) {
+                    if (this.grid[j][i].drawn === false) {
+                        isComplete = false;
+                    }
+                }
+                
+                if ( isComplete )
+                    return isComplete;
+            }
+            
+            return false;
+        }
+    }
+    
+    class BingoNumber {
+        constructor( n ) {
+            this.number = n;
+            this.drawn = false;
+        }
+    }
+
+    input = input.split("\n\n");
+
     let draws = input.slice()[0].split(",");
     let grids = input.splice(1);
     
@@ -46,67 +110,5 @@ function execute( input ) {
                 }
             }
         }
-    }
-}
-
-class BingoGrid {
-    constructor( grid ) {
-        this.grid = grid;
-        
-        for (var i = 0; i < this.grid.length; i++) {
-            for (var j = 0; j < this.grid[i].length; j++) {
-                this.grid[i][j] = new BingoNumber( this.grid[i][j] );
-            }
-        }
-    }
-    
-    draw( number ) {
-        for (var i = 0; i < this.grid.length; i++) {
-            for (var j = 0; j < this.grid[i].length; j++) {
-                if (this.grid[i][j].number === number) {
-                    this.grid[i][j].drawn = true;
-                    return;
-                }
-            }
-        }
-    }
-    
-    isComplete() {
-        // Test des combinaisons horizontales
-        for (var i = 0; i < this.grid.length; i++) {
-            let isComplete = true;
-            
-            for (var j = 0; j < this.grid[i].length; j++) {
-                if ( this.grid[i][j].drawn === false ) {
-                    isComplete = false;
-                }
-            }
-            
-            if ( isComplete ) 
-                return isComplete;
-        }
-        
-        // Test des combinaisons verticales
-        for (var i = 0; i < this.grid.length; i++) {
-            let isComplete = true;
-            
-            for (var j = 0; j < this.grid[i].length; j++) {
-                if (this.grid[j][i].drawn === false) {
-                    isComplete = false;
-                }
-            }
-            
-            if ( isComplete )
-                return isComplete;
-        }
-        
-        return false;
-    }
-}
-
-class BingoNumber {
-    constructor( n ) {
-        this.number = n;
-        this.drawn = false;
     }
 }
