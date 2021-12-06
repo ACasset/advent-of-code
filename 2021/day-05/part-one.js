@@ -1,3 +1,3 @@
-function execute() {
-    
+function execute( input ) {
+    return "result";
 }

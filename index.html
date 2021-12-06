@@ -37,39 +37,28 @@
             }
             
             function run() {
-                let baseUrl = "https://github.com/ACasset/AdventOfCode/main/"
-                let path = document.getElementById("year").value + "/day%20" + document.getElementById("day").value + "/";
-            
-                let input;
-                // document.getElementById("input-real").value
-                // document.getElementById("input-test").value
-                input = "test";
-                let fullPath = baseUrl + path + input + ".txt";
+                let baseUrl = "https://raw.githubusercontent.com/ACasset/AdventOfCode/main/"
+                let path = document.getElementById("year").value + "/day-" + document.getElementById("day").value + "/";
 
-                var rawFile = new XMLHttpRequest();
-                rawFile.open("GET", fullPath, true);
+                let fullInputPath = baseUrl + path + "input-" + document.querySelector('input[name="input"]:checked').value + ".txt";
+
+                let rawFile = new XMLHttpRequest();
+                rawFile.open("GET", fullInputPath, true);
                 rawFile.onreadystatechange = function () {
                     if (rawFile.readyState === 4){
                         if (rawFile.status === 200 || rawFile.status == 0) {
-                            var allText = rawFile.responseText;
-                            alert(allText);
+                            let script = document.createElement("script");
+
+                            script.onload = function () {
+                                document.getElementById("output").innerHTML = execute( rawFile.responseText );
+                            };
+
+                            script.src = document.getElementById("year").value + "/day-" + document.getElementById("day").value + "/" + "part-" + document.querySelector('input[name="part"]:checked').value + ".js";
+                            document.head.appendChild(script);
                         }
                     }
                 }
                 rawFile.send(null);
-                
-                let script = document.createElement("script");
-                script.onload = function () {
-                    execute();
-                };
-                
-                let part;
-                // document.getElementById("part-one").value
-                // document.getElementById("part-two").value
-                part = "part-one";
-                script.src = document.getElementById("year").value + "/day-" + document.getElementById("day").value + "/" + part + ".js";
-
-                document.head.appendChild(script); //or something of the likes
             }
         </script>
     </head>
