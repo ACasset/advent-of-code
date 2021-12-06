@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <script type="text/javascript">
+			let currentDate = new Date();
+			
+            function initYears() {
+				for (var i = currentDate.getFullYear(); i >= 2015; i--) {
+					if (currentDate.getFullYear() == i && currentDate.getMonth() < 11)
+						continue;
+					
+					let year = document.createElement("option");
+					year.value = i;
+					year.text = i;
+					
+					document.getElementById("year").append(year);
+				}
+				
+				document.getElementById("year").addEventListener("change", function(){ initDays(); });
+				document.getElementById("year").dispatchEvent(new Event("change"));
+			}
+			
+			function initDays() {
+				while (document.getElementById("day").firstChild) {
+					document.getElementById("day").removeChild(document.getElementById("day").lastChild);
+				}
+			
+				for (var i = 25; i >= 1; i--) {
+					if (currentDate.getFullYear() == document.getElementById("year").value && currentDate.getMonth() == 11 && currentDate.getDate() < i)
+						continue;
+					
+					let day = document.createElement("option");
+					day.value = ("" + i).padStart(2, '0');
+					day.text = ("" + i).padStart(2, '0');
+					
+					document.getElementById("day").append(day);
+				}
+			}
+			
+			function run() {
+				let absolutePath;
+				absolutePath = document.location.href.split("/");
+				absolutePath.pop();
+				absolutePath = absolutePath.join("/") + "/";
+				
+				let relativePath = document.getElementById("year").value + "/day%20" + document.getElementById("day").value + "/";
+			
+				let fullPath = absolutePath + relativePath + "input.txt";
+				
+				var rawFile = new XMLHttpRequest();
+				rawFile.open("GET", fullPath, true);
+				rawFile.onreadystatechange = function ()
+				{
+					if (rawFile.readyState === 4)
+					{
+						if (rawFile.status === 200 || rawFile.status == 0)
+						{
+							var allText = rawFile.responseText;
+							alert(allText);
+						}
+					}
+				}
+				rawFile.send(null);
+				
+				let script = document.createElement("script");
+				script.onload = function () {
+					execute();
+				};
+				
+				let part
+				// document.getElementById("part-one").value
+				part = "one";
+				script.src = document.getElementById("year").value + "/day%20" + document.getElementById("day").value + "/part%20" +  + ".html";
+
+				document.head.appendChild(script); //or something of the likes
+			}
+        </script>
+    </head>
+    <body style="text-align: center;" onload="javascript:initYears();">
+        <div style="margin-top: 30px;">
+			Year: <select id="year"><select><br />
+			Day: <select id="day"></select><br />
+			Part: <label><input id="part-one" type="radio" name="part" value="one" checked="checked" />one</label> <label><input id="part-two" type="radio" name="part" value="two" />two</label><br />
+			Input: <label><input id="input-real" type="radio" name="input" value="real" checked="checked" />real</label> <label><input id="input-test" type="radio" name="input" value="test" />test</label><br />
+            <input type="button" value="Run" onclick="javascript:run();" />
+        </div>
+        <div style="margin-top: 30px;">
+            <span id="output"></span>
+        </div>
+    </body>
+</html>
