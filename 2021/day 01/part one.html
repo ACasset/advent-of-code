@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function run() {
+                let input = document.getElementById("input").value;
+
+                let lines = input.split("\n");
+				
+				let output = 0;
+
+                for (var i = 0; i < (lines.length - 1); i++) {
+                    if (parseInt(lines[i]) < parseInt(lines[i+1]))
+						output++;
+                }
+				
+                document.getElementById("output").innerHTML = output;
+            }
+        </script>
+    </head>
+    <body style="text-align: center;">
+        <div style="margin-top: 30px;">
+            <textarea id="input"></textarea><br />
+            <input type="button" value="Run" onclick="javascript:run();" />
+        </div>
+        <div style="margin-top: 30px;">
+            <span id="output"></span>
+        </div>
+    </body>
+</html>
