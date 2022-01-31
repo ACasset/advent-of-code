@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function initDays() {
+                while (document.getElementById("day").firstChild) {
+                    document.getElementById("day").removeChild(document.getElementById("day").lastChild);
+                }
+            
+                for (var i = 25; i >= 1; i--) {
+                    let day = document.createElement("option");
+                    day.value = ("" + i).padStart(2, '0');
+                    day.text = ("" + i).padStart(2, '0');
+                    
+                    document.getElementById("day").append(day);
+                }
+            }
+            
+            let script = null;
+
+            function load() {
+                let baseUrl = "https://raw.githubusercontent.com/ACasset/AdventOfCode/main/"
+                let path = "day-" + document.getElementById("day").value + "/";
+
+                let fullInputPath = baseUrl + path + "input-" + document.querySelector('input[name="input"]:checked').value + ".txt";
+
+                let rawFile = new XMLHttpRequest();
+                rawFile.open("GET", fullInputPath, true);
+                rawFile.onreadystatechange = function () {
+                    if (rawFile.readyState === 4) {
+                        if (rawFile.status === 200 || rawFile.status == 0) {
+							document.getElementById("input").value = rawFile.responseText;
+                        }
+                    }
+                }
+                rawFile.send(null);
+            }
+			
+			function run() {
+				if (script !== null)
+					script.remove();
+
+				script = document.createElement("script");
+				script.src = "day-" + document.getElementById("day").value + "/" + "part-" + document.querySelector('input[name="part"]:checked').value + ".js";
+				script.onload = function () {
+					document.getElementById("output").innerHTML = execute( document.getElementById("input").value );
+				};
+				
+				document.head.appendChild(script);
+			}
+        </script>
+    </head>
+    <body style="text-align: center;" onload="javascript:initDays();">
+        <div style="margin-top: 30px;">
+            Day: <select id="day"></select><br />
+            Input: <label><input id="input-test" type="radio" name="input" value="test" checked="checked" />test</label> <label><input id="input-real" type="radio" name="input" value="real" />real</label><br />
+			<input type="button" value="Load input" onclick="javascript:load();" /><br />
+			<textarea id="input" style="display: inline-	block; height: 200px; width: 300px;"></textarea><br />
+			Part: <label><input id="part-one" type="radio" name="part" value="one" checked="checked" />one</label> <label><input id="part-two" type="radio" name="part" value="two" />two</label><br />
+            <input type="button" value="Run script" onclick="javascript:run();" />
+        </div>
+        <div style="margin-top: 30px;">
+            <span id="output"></span>
+        </div>
+    </body>
+</html>
