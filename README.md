@@ -5,25 +5,25 @@
 - Progress: 25/50
 
 ## 2020
-- Language: C#
+- Language: Angular
 - Progress: 0/50
 
 ## 2019
-- Language: PHP
+- Language: NodejS
 - Progress: 0/50
 
 ## 2018
-- Language: Java
-- Progress: 0/50
-
-## 2017
 - Language: Python
 - Progress: 0/50
 
+## 2017
+- Language: C#
+- Progress: 0/50
+
 ## 2016
-- Language: NodeJS
+- Language: Java
 - Progress: 0/50
 
 ## 2015
-- Language: TBD
+- Language: PHP
 - Progress: 0/50
