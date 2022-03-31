@@ -5,7 +5,7 @@
 - Progress: 25/50
 
 ## 2020
-- Language: Angular
+- Language: Bash
 - Progress: 0/50
 
 ## 2019
