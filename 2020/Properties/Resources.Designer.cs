@@ -149,9 +149,9 @@ namespace AdventOfCode.Properties {
         ///233
         ///1 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Day01 {
+        internal static string Day1 {
             get {
-                return ResourceManager.GetString("Day01", resourceCulture);
+                return ResourceManager.GetString("Day1", resourceCulture);
             }
         }
         
@@ -181,9 +181,9 @@ namespace AdventOfCode.Properties {
         ///4-8 k: dsfktqchpkk
         ///6-7 j: jzjgjq [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Day02 {
+        internal static string Day2 {
             get {
-                return ResourceManager.GetString("Day02", resourceCulture);
+                return ResourceManager.GetString("Day2", resourceCulture);
             }
         }
     }

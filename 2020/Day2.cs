@@ -1,12 +1,12 @@
 ﻿using System.Resources;
 
-class Day02
+class Day2
 {
     internal static List<String> ReadInput()
     {
         List<String> input = new List<String>();
 
-        foreach (String line in AdventOfCode.Properties.Resources.Day02.Split("\r\n"))
+        foreach (String line in AdventOfCode.Properties.Resources.Day2.Split("\r\n"))
         {
             input.Add(line);
         }
