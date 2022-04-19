@@ -1,3 +1,44 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Day 01, step 1 = " + Day01.Step1());
-Console.WriteLine("Day 01, step 2 = " + Day01.Step2());
+﻿using System.Reflection;
+
+Console.WriteLine("Choose day [1-25]");
+String? dayInput = Console.ReadLine();
+Int32 day;
+
+if (!Int32.TryParse(dayInput, out day) || day < 1 || day > 25)
+{
+    return -1;
+}
+
+Console.WriteLine("Choose step [1-2]");
+String? stepInput = Console.ReadLine();
+Int32 step;
+
+if (!Int32.TryParse(stepInput, out step) || step < 1 || step > 25)
+{
+    return -2;
+}
+
+Type? type = Type.GetType("Day" + day.ToString("00"));
+
+if (type == null)
+{
+    return -3;
+}
+
+MethodInfo? methodInfo = type.GetMethod("Step" + step);
+
+if (methodInfo == null)
+{
+    return -4;
+}
+
+object? result = methodInfo.Invoke(null, null);
+
+if (result == null)
+{
+    return -5;
+}
+
+Console.WriteLine("Day {0:00}, step {1} = " + result.ToString(), day, step);
+
+return 0;
