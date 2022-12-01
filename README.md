@@ -1,5 +1,9 @@
 # AdventOfCode
 
+## 2022
+- Language: Python
+- Progress: 0/50
+
 ## 2021
 - Language: JavaScript
 - Progress: 25/50
@@ -25,5 +29,5 @@
 - Progress: 0/50
 
 ## 2015
-- Language: Python
+- Language: Go
 - Progress: 0/50
