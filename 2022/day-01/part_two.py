@@ -1,12 +1,18 @@
-'''Find the highest sum among line-separated groups'''
+'''Day 01, part two'''
 
-BASE_PATH = "/workspaces/AdventOfCode/2022/day-"
+import sys
+import os
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
+import functions
+
 DAY = "01"
 INPUT_TYPE = "real"
 
 def main():
     '''Main function'''
-    input_file = read_file()
+    input_file = functions.read_file(DAY, INPUT_TYPE)
 
     current_sum = 0
     sums = []
@@ -20,10 +26,5 @@ def main():
 
     sums.sort(reverse = True)
     print(sums[0] + sums[1] + sums[2])
-
-def read_file():
-    '''Reads input from a file'''
-    file = open(BASE_PATH + DAY + "/input_" + INPUT_TYPE + ".txt", "r", encoding="utf-8")
-    return file.read()
 
 main()
