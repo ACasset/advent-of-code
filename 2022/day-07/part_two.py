@@ -23,7 +23,7 @@ def main():
     print(eligible_folders)
 
 class FileSystemItem:
-    def __init__(self, name: str, parent):
+    def __init__(self, name: str, parent: "FileSystemItem"):
         self.name = name
         self.parent = parent
         self.size = 0
@@ -38,7 +38,7 @@ class FileSystemItem:
         return int(self.size)
 
 class Folder(FileSystemItem):
-    def __init__(self, name: str, parent: FileSystemItem):
+    def __init__(self, name, parent):
         super().__init__(name, parent)
         self.children = []
 
