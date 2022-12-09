@@ -9,7 +9,7 @@ import functions
 from typing import List
 
 DAY = "08"
-INPUT_TYPE = "test"
+INPUT_TYPE = "real"
 
 def main():
     '''Main function'''

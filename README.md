@@ -2,7 +2,7 @@
 
 ## 2022
 - Language: Python
-- Progress: 16/50
+- Progress: 17/50
 
 ## 2021
 - Language: JavaScript
