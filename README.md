@@ -1,5 +1,9 @@
 # [Advent of Code](https://adventofcode.com)
 
+## [2023](https://adventofcode.com/2023)
+- Language: Ruby
+- Progress: 2/50
+
 ## [2022](https://adventofcode.com/2022)
 - Language: Python
 - Progress: 17/50
