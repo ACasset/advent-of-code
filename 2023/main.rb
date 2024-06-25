@@ -1,6 +1,8 @@
 arguments = ARGV
 
-if arguments.length < 1
+if arguments.length >= 1
+    day = arguments[0]
+else
     puts "Select a day:"
     day = gets.chomp
 end
@@ -8,14 +10,18 @@ end
 # TODO: make the variable on 2 digits
 # TODO: check if the day exists as a folder
 
-if arguments.length < 2
+if arguments.length >= 2
+    part = arguments[1]
+else
     puts "Select a part:"
     part = gets.chomp
 end
 
 # TODO: check if the part exists as a file
 
-if arguments.length < 3
+if arguments.length >= 3
+    input = arguments[2]
+else
     default_input = "real"
     puts "Select an input [#{default_input}]:"
     # TODO: list the available inputs
