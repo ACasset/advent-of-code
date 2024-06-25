@@ -1,0 +1,28 @@
+name: 2023 (Ruby)
+
+on:
+  workflow_dispatch:
+    inputs:
+      day:
+        description: "Day"
+        default: "01"
+        required: true
+      part:
+        description: "Part"
+        default: "one"
+        required: true
+      input:
+        description: "Input"
+        default: "test"
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1.180.1
+        with:
+          working-directory: 2023
+
+      - name: Run main.rb
+        run: ruby main.rb ${{ github.event.inputs.day }} ${{ github.event.inputs.part }} ${{ github.event.inputs.input }}
