@@ -1,5 +1,5 @@
 def get_input()
-    return File.read("day-" + ENV['day'] + "/input-" + ENV['input'] + ".txt")
+    return File.read("day-" + ENV["day"] + "/input-" + ENV["input"] + ".txt")
 end
 
 def get_input_lines()

@@ -6,16 +6,10 @@ def parse_line(line)
     game_data = parsing.last
     draws = game_data.split("; ")
 
-    puts ""
-    puts "Game ID: " + game_id
-    puts "Game data: " + game_data
-
     draws.each { |draw|
-        puts "Draw: " + draw
         groups = draw.split(", ")
 
         groups.each { |group|
-            puts "Group: " + group
             color = group.split(" ").last
 
             if (group.split(" ").first.to_i > target[color])
