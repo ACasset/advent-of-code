@@ -34,4 +34,9 @@ end
 
 require_relative "functions.rb"
 
-require_relative "day-" + ENV["day"] + "/part-" + ENV["part"]
+require 'benchmark'
+performance = Benchmark.measure do
+    print "Result: "
+    require_relative "day-" + ENV["day"] + "/part-" + ENV["part"]
+end
+puts "Execution time: " + performance.total.to_s
