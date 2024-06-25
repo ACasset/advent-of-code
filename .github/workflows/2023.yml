@@ -5,7 +5,7 @@ on:
     inputs:
       day:
         description: "Day"
-        default: "02"
+        default: "03"
         required: true
       part:
         description: "Part"
