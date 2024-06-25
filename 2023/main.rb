@@ -33,6 +33,6 @@ end
 # TODO: check if the input exists as a file
 
 input_file = File.read("day-" + day + "/input-" + input + ".txt")
-input_lines = file.split("\n")
+input_lines = input_file.split("\n")
 
 require_relative "day-" + day + "/part-" + part
