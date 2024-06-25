@@ -1,15 +1,31 @@
 def parse_line(line)
-    parsing = line.scan(/Game (\d+): (\d+ (red|green|blue);?)+/)
-    game_id = parsing.first
+    target = { "red" => 12, "green" => 13, "blue" => 14 }
 
-    p parsing
-    puts
+    parsing = line.scan(/^Game (\d+): ([\d\w ,;]+)$/).flatten
+    game_id = parsing.first
+    game_data = parsing.last
+    draws = game_data.split("; ")
+
+    puts ""
     puts "Game ID: " + game_id
-    puts "Game data:"
+    puts "Game data: " + game_data
+
+    draws.each { |draw|
+        puts "Draw: " + draw
+        groups = draw.split(", ")
+
+        groups.each { |group|
+            puts "Group: " + group
+            color = group.split(" ").last
+
+            if (group.split(" ").first.to_i > target[color])
+                return 0
+            end
+        }
+    }
+
     return game_id
 end
-
-target = { "red" => 12, "green" => 13, "blue" => 14 }
 
 sum = 0
 get_input_lines().each { |line|
