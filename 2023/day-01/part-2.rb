@@ -1,8 +1,3 @@
-input = "real"
-
-file = File.read("input-" + input + ".txt")
-lines = file.split("\n")
-
 def convert(number)
     case number
     when "one" then return 1
@@ -24,7 +19,7 @@ def find_number(line)
 end
 
 sum = 0
-lines.each { |line|
+input_lines.each { |line|
     sum += find_number(line)
 }
 
