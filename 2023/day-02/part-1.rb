@@ -24,7 +24,7 @@ def parse_line(line)
         }
     }
 
-    return game_id
+    return game_id.to_i
 end
 
 sum = 0
