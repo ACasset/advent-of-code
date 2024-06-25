@@ -4,7 +4,7 @@ def find_number(line)
 end
 
 sum = 0
-input_lines.each { |line|
+get_input_lines().each { |line|
     sum += find_number(line)
 }
 
