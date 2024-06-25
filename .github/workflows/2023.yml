@@ -22,7 +22,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1.180.1
         with:
-          working-directory: 2023
+          working-directory: "2023"
 
       - name: Run main.rb
         run: ruby main.rb ${{ github.event.inputs.day }} ${{ github.event.inputs.part }} ${{ github.event.inputs.input }}
