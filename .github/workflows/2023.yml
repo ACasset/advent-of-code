@@ -28,4 +28,6 @@ jobs:
           working-directory: 2023
 
       - name: Run main.rb
-        run: ruby 2023/main.rb ${{ github.event.inputs.day }} ${{ github.event.inputs.part }} ${{ github.event.inputs.input }}
+        run: |
+          cd 2023/
+          ruby main.rb ${{ github.event.inputs.day }} ${{ github.event.inputs.part }} ${{ github.event.inputs.input }}
