@@ -1,22 +1,22 @@
 def is_number?(char)
-    return char.match?(/[[:digit:]]/)
+    char.match?(/[[:digit:]]/)
 end
 
 def is_symbol?(char)
-    return char.match?(/\#$%&*+\-\/=@]/)
+    char.match?(/\#$%&*+\-\/=@]/)
 end
 
 def find_numbers(line)
     numbers = []
+    number = ""
 
     (0..line.length-1).each { |i|
         puts "Character: #{line[i]}"
-        number = ""
 
         if is_number?(line[i])
             number += line[i]
         else
-            if !number.empty?
+            unless number.empty?
                 puts "Adding number: #{number}"
                 numbers.push(number)
                 number = ""
