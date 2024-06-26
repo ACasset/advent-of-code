@@ -54,7 +54,7 @@ map = get_input_lines()
 sum = 0
 
 (0..map.length-1).each { |i|
-    sum += find_numbers(map, i)
+    sum += find_numbers(map, i).map(&:to_i).sum
 
     #(0..map[i].length-1).each { |j|
     #    
