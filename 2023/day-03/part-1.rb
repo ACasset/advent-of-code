@@ -6,7 +6,7 @@ def has_symbol_around?(map, x, y)
     low_y_range = y-1
     low_y_range = y+1
 
-    i in [0, low_y_range].max..[map.length, low_y_range].min do
+    i in ([0, low_y_range].max)..([map.length, low_y_range].min) do
         j in [0, low_x_range].max..[map[i].length, high_x_range].min do
             puts "Looking at #{j},#{i}: #{map[j][i]}"
         end
