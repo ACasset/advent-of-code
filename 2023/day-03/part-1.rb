@@ -8,11 +8,11 @@ def has_symbol_around?(map, x, y)
 
     puts "Range will be from #{low_x_range},#{low_y_range} to #{high_x_range},#{high_y_range}"
 
-    i in (low_y_range..high_y_range) do
-        j in (low_x_range..high_x_range) do
+    (low_y_range..high_y_range).each { |i|
+        (low_x_range..high_x_range).each { |j|
             puts "Looking at #{j},#{i}: #{map[j][i]}"
-        end
-    end
+        }
+    }
 
     return false
 end
