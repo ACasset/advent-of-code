@@ -10,7 +10,7 @@ def has_symbol_around?(map, x, y)
 
     (low_y_range..high_y_range).each { |i|
         (low_x_range..high_x_range).each { |j|
-            puts "Looking at #{j},#{i}: #{map[j][i]}"
+            puts "Looking at #{j},#{i}: #{map[i][j]}"
         }
     }
 
