@@ -3,7 +3,7 @@ def is_number?(char)
 end
 
 def is_symbol?(char)
-    char.match?(/[[:symbol:]]/)
+    char.match?(/[[:punct:]]/)
 end
 
 def find_numbers(line)
