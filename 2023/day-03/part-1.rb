@@ -22,8 +22,10 @@ def find_numbers(map, line_index)
             unless number.empty?
                 puts "Looking for symbols around #{number} on line #{line_index+1}"
                 if has_symbol_around?(map, line_index, number_start_index, i-1)
-                    puts "Adding #{number} to the "
+                    puts "Adding #{number} to the list"
                     numbers.push(number.to_i)
+                else
+                    puts "Ignoring #{number}"
                 end
 
                 number = ""
@@ -40,8 +42,6 @@ def has_symbol_around?(map, line_index, column_start_index, column_end_index)
     high_x_range = [column_end_index+1, map[0].length-1].min
     low_y_range = [0, line_index-1].max
     high_y_range = [line_index+1, map.length-1].min
-
-    puts "Range will be from #{low_x_range},#{low_y_range} to #{high_x_range},#{high_y_range}"
 
     (low_y_range..high_y_range).each { |i|
         (low_x_range..high_x_range).each { |j|
