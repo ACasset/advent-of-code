@@ -48,6 +48,7 @@ map = get_input_lines()
 sum = 0
 
 (0..map.length-1).each { |i|
+    puts "Looking for line #{i}: #{map[i]}"
     numbers = find_numbers(map[i])
 
     puts "Numbers for line #{i}: numbers"
