@@ -53,7 +53,7 @@ sum = 0
     puts "Looking for line #{i}: #{map[i]}"
     numbers = find_numbers(map[i])
 
-    puts "Numbers for line #{i}: numbers"
+    puts "Numbers for line #{i}: #{numbers}"
 
     #(0..map[i].length-1).each { |j|
     #    
