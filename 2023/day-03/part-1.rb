@@ -1,3 +1,30 @@
+def is_number?(char)
+    char.match?(/[[:digit:]]/)
+end
+
+def is_symbol?(char)
+    char.match?(/[[:symbol:]]/)
+end
+
+def find_numbers(line)
+    numbers = []
+
+    (0..line.length-1).each { |i|
+        number = ""
+
+        if is_number?(line[i])
+            number += line[i]
+        else
+            if !number.empty?
+                numbers.push(number)
+                number = ""
+            end
+        end
+    }
+
+    return numbers
+end
+
 def has_symbol_around?(map, x, y)
     puts "Starting point is: #{x},#{y}"
 
@@ -17,12 +44,19 @@ def has_symbol_around?(map, x, y)
     return false
 end
 
-has_symbol_around?(get_input_lines(), 0, 0)
-has_symbol_around?(get_input_lines(), 9, 9)
-
+map = get_input_lines()
 sum = 0
-get_input_lines().each { |line|
-    #sum += has_symbol_around(line)
+
+(0..map.length-1).each { |i|
+    numbers = find_numbers(map[i])
+
+    puts "Numbers for line #{i}: numbers"
+
+    #(0..map[i].length-1).each { |j|
+    #    
+    #    if has_symbol_around?(map)
+    #    puts "Looking at #{j},#{i}: #{map[i][j]}"
+    #}
 }
 
 puts sum
