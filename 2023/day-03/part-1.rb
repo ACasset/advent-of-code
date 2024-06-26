@@ -21,8 +21,9 @@ def find_numbers(map, line_index)
         else
             unless number.empty?
                 if has_symbol_around?(map, line_index, number_start_index, i-1)
-                    number_start_index = -1
                     numbers.push(number.to_i)
+                    number = ""
+                    number_start_index = -1
                 end
             end
         end
@@ -54,13 +55,7 @@ map = get_input_lines()
 sum = 0
 
 (0..map.length-1).each { |i|
-    sum += find_numbers(map, i).map(&:to_i).sum
-
-    #(0..map[i].length-1).each { |j|
-    #    
-    #    if has_symbol_around?(map)
-    #    puts "Looking at #{j},#{i}: #{map[i][j]}"
-    #}
+    sum += find_numbers(map, i).sum
 }
 
 puts sum
