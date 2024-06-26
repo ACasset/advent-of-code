@@ -3,7 +3,7 @@ def is_number?(char)
 end
 
 def is_symbol?(char)
-    return char.match?(/[!"\#$%&'()*+,\-/:;<=>?@\[\\\]^_`{|}~]/)
+    return char.match?(/\#$%&*+\-/=@]/)
 end
 
 def find_numbers(line)
