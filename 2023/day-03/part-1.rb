@@ -20,6 +20,7 @@ def find_numbers(map, line_index)
             unless number.empty?
                 if has_symbol_around?(map, line_index, number_start_index, i-1)
                     numbers.push(number.to_i)
+                end
             end
         end
     }
@@ -39,6 +40,7 @@ def has_symbol_around?(map, line_index, column_start_index, column_end_index)
         (low_x_range..high_x_range).each { |j|
             if is_symbol?(map[i][j])
                 return true
+            end
         }
     }
 
