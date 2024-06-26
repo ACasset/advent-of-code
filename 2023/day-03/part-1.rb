@@ -3,7 +3,7 @@ def is_number?(char)
 end
 
 def is_symbol?(char)
-    char.match?(/\#$%&*+\-\/=@]/)
+    char.match?(/[\#$%&*+\-\/=@]/)
 end
 
 def find_numbers(map, line_index)
