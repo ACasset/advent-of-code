@@ -10,12 +10,14 @@ def find_numbers(line)
     numbers = []
 
     (0..line.length-1).each { |i|
+        puts "Character: #{line[i]}"
         number = ""
 
         if is_number?(line[i])
             number += line[i]
         else
             if !number.empty?
+                puts "Adding number: #{number}"
                 numbers.push(number)
                 number = ""
             end
