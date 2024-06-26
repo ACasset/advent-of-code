@@ -2,9 +2,9 @@ def has_symbol_around?(map, x, y)
     puts "Starting point is: #{x},#{y}"
 
     low_x_range = [0, x-1].max
-    high_x_range = [x+1, map[0].length].min
+    high_x_range = [x+1, map[0].length-1].min
     low_y_range = [0, y-1].max
-    high_y_range = [y+1, map.length].min
+    high_y_range = [y+1, map.length-1].min
 
     puts "Range will be from #{low_x_range},#{low_y_range} to #{high_x_range},#{high_y_range}"
 
