@@ -17,7 +17,8 @@ def has_symbol_around?(map, x, y)
     return false
 end
 
-has_symbol_around?(get_input_lines(), 2, 3)
+has_symbol_around?(get_input_lines(), 0, 0)
+has_symbol_around?(get_input_lines(), 9, 9)
 
 sum = 0
 get_input_lines().each { |line|
