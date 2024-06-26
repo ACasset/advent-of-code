@@ -1,7 +1,13 @@
 def has_symbol_around?(map, x, y)
     puts "Starting point is: #{x},#{y}"
-    i in [0, (y-1)].max..[map.length, y+1].min do
-        j in [0, (x-1)].max..[map[i].length, x+1].min do
+
+    low_x_range = x-1
+    high_x_range = x+1
+    low_y_range = y-1
+    low_y_range = y+1
+
+    i in [0, low_y_range].max..[map.length, low_y_range].min do
+        j in [0, low_x_range].max..[map[i].length, high_x_range].min do
             puts "Looking at #{j},#{i}: #{map[j][i]}"
         end
     end
