@@ -10,15 +10,18 @@ def find_numbers(map, line_index)
     line = map[line_index]
     numbers = []
     number = ""
-    number_start_index = 0
+    number_start_index = -1
 
     (0..line.length-1).each { |i|
         if is_number?(line[i])
-            number_start_index = i
+            if number_start_index == -1
+                number_start_index = i
+            end
             number += line[i]
         else
             unless number.empty?
                 if has_symbol_around?(map, line_index, number_start_index, i-1)
+                    number_start_index = -1
                     numbers.push(number.to_i)
                 end
             end
