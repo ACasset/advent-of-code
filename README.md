@@ -2,7 +2,7 @@
 
 ## [2023](https://adventofcode.com/2023)
 - Language: Ruby
-- Progress: 4/50
+- Progress: 5/50
 
 ## [2022](https://adventofcode.com/2022)
 - Language: Python
