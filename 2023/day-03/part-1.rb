@@ -1,9 +1,9 @@
 def is_number?(char)
-    char.match?(/[[:digit:]]/)
+    char.match?(/\d/)
 end
 
 def is_symbol?(char)
-    char.match?(/[*&$\-+%\/#=@]/)
+    char.match?(/[^\d\.]/)
 end
 
 def find_numbers(map, line_index)
