@@ -18,6 +18,19 @@ def find_numbers(map, line_index)
                 number_start_index = i
             end
             number += line[i]
+
+            if i == line.length-1
+                puts "Looking for symbols around #{number} on line #{line_index+1}"
+                if has_symbol_around?(map, line_index, number_start_index, i-1)
+                    puts "Adding #{number} to the list"
+                    numbers.push(number.to_i)
+                else
+                    puts "Ignoring #{number}"
+                end
+
+                number = ""
+                number_start_index = -1
+            end
         else
             unless number.empty?
                 puts "Looking for symbols around #{number} on line #{line_index+1}"
