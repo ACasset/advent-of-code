@@ -2,7 +2,7 @@
 
 ## [2023](https://adventofcode.com/2023)
 - Language: Ruby
-- Progress: 5/50
+- Progress: 8/50
 
 ## [2022](https://adventofcode.com/2022)
 - Language: Python
@@ -14,7 +14,7 @@
 
 ## [2020](https://adventofcode.com/2020)
 - Language: C#
-- Progress: 0/50
+- Progress: 2/50
 
 ## [2019](https://adventofcode.com/2019)
 - Language: NodejS
