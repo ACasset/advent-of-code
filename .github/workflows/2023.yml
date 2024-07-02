@@ -5,11 +5,11 @@ on:
     inputs:
       day:
         description: "Day"
-        default: "03"
+        default: "04"
         required: true
       part:
         description: "Part"
-        default: "1"
+        default: "2"
         required: true
       input:
         description: "Input"
